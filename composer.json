@@ -1,9 +1,6 @@
 {
     "name": "sihebrothers/log-format",
     "description": "四合兄弟基于monolog二次开发的日志组件",
-    "require": {
-        "monolog/monolog": "1.25.4"
-    },
     "config": {
         "sort-packages": true
     },
