@@ -1,0 +1,25 @@
+{
+    "name": "sihe/log-for-laravel-lumen",
+    "description": "四合兄弟基于monolog二次开发的日志组件",
+    "require": {
+        "monolog/monolog": "1.25.4"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Sihe\\Log\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sihe\\Log\\SiheLogServiceProvider"
+            ],
+            "aliases": {
+                "Log": "Sihe\\Log\\Facades"
+            }
+        }
+    }
+}
