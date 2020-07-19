@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Facade;
 /**
  * 创建人：Rex.栗田庆
  * 创建时间：2019-05-13 19:48
- * Class BHCDS 基卫云数据服务 Facade
  * @method static LogManager getLogger($name)
  * @see LogManager
  */

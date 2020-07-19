@@ -47,40 +47,44 @@ class Writer
 	{
 		$this->monolog = $monolog;
 	}
-	
-	/**
-	 * Register a file log handler.
-	 *
-	 * @param        $path
-	 * @param   int  $level
-	 * @throws \Exception
-	 * @author chenpeng1@guahao.com
-	 */
+
+    /**
+     * Notes: 创建流处理
+     * @param $path
+     * @param int $level
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:51
+     */
 	public function useFiles($path, $level = 100)
 	{
 		$handler = new StreamHandler($path, $level);
 		$this->setFormatter($handler);
 	}
-	
-	/**
-	 * 使用dateFile 形式来记录日志
-	 *
-	 * @param        $path
-	 * @param int    $days
-	 * @param int    $level
-	 * @author chenpeng1@guahao.com
-	 */
+
+    /**
+     * Notes: 用日期形式创建文件夹
+     * @param $path
+     * @param int $days
+     * @param int $level
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:49
+     */
 	public function useDateFiles($path, $days = 0, $level = 100)
 	{
 		$handler = new RotatingFileHandler($path, $days, $level);
 		$handler->setFilenameFormat('{date}/{filename}', 'Y-m-d');
 		$this->setFormatter($handler);
 	}
-	
-	/**
-	 * @param HandlerInterface $handler
-	 * @author chenpeng1@guahao.com
-	 */
+
+    /**
+     * Notes: 组装数据
+     * @param HandlerInterface $handler
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:50
+     */
 	protected function setFormatter(HandlerInterface $handler)
 	{
 		$handler->setFormatter($this->getLineFormatter());
@@ -98,13 +102,14 @@ class Writer
 			$this->monolog->pushProcessor(new UidProcessor(24));
 		}
 	}
-	
-	/**
-	 * Get a default Monolog formatter instance.
-	 *
-	 * @return \Monolog\Formatter\LineFormatter
-	 * @author chenpeng1@guahao.com
-	 */
+
+    /**
+     * Notes: 格式化数据
+     * @return LineFormatter
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:50
+     */
 	protected function getLineFormatter()
 	{
         //return new LineFormatter("%datetime% [%level_name%] : %extra.host_name%  %extra.file%:%extra.line% %extra.uid% %message% %context% \n", 'Y-m-d H:i:s,u', true, true);
@@ -112,10 +117,7 @@ class Writer
         return new LineFormatter("\r\n\r\n\r\n\r\n\033[1;37;48m================系统信息==================\033[0m \r\n[\033[0;31;48m日志产生时间 : %datetime%\033[0m] \r\n[级别 : %level_name%] [主机 : %extra.host_name%] [唯一 ID : \033[0;36;48m %extra.uid% \033[0m]\r\n[日志产生自 : \033[1;34;48m %extra.file% \033[0m:\033[0;35;48m 第%extra.line%行 \033[0m]\r\n\033[1;37;48m---------------记录信息开始-------------->\033[0m\r\n\033[1;32;48m\r\n%message% :\r\n\r\n%extra.context% \r\n\033[0m \r\n\033[1;37;48m<--------------记录信息结束---------------\033[0m", 'Y-m-d H:i:s,u', true, true);
 	}
 	
-	/**
-	 * @return Logger
-	 * @author chenpeng1@guahao.com
-	 */
+
 	public function getMonolog()
 	{
 		return $this->monolog;

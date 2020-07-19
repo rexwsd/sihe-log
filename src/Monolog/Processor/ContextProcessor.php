@@ -6,6 +6,14 @@ namespace Sihe\Log\Monolog\Processor;
 
 class ContextProcessor
 {
+    /**
+     * Notes: 获取日志内容从新组装
+     * @param array $record
+     * @return array
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:47
+     */
     public function __invoke(array $record)
     {
         if (isset($record['context'])) {

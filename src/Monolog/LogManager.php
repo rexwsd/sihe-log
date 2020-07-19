@@ -20,13 +20,17 @@ class LogManager extends Manager implements Log
 	 * @var array
 	 */
 	protected $logger = [];
-	
-	/**
-	 * @param null $logger
-	 * @return $this|Log|mixed
-	 * @throws \Illuminate\Contracts\Container\BindingResolutionException
-	 * @author chenpeng1@guahao.com
-	 */
+
+
+    /**
+     * Notes: 重写获取日志方式
+     * @param null $logger
+     * @return $this|mixed|Log
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:48
+     */
 	public function getLogger($logger = null)
 	{
 		if (empty($logger)) {
@@ -56,13 +60,16 @@ class LogManager extends Manager implements Log
 			});
 		}
 	}
-	
-	/**
-	 * @param $name
-	 * @return mixed
-	 * @throws \Illuminate\Contracts\Container\BindingResolutionException
-	 * @author chenpeng1@guahao.com
-	 */
+
+    /**
+     * Notes: 创建新日志
+     * @param $name
+     * @return mixed
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:49
+     */
 	public function createLogger($name)
 	{
 		$this->app->make('config')->set('app.log_channel', $name);

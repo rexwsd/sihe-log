@@ -9,12 +9,10 @@ namespace Sihe\Log\Monolog\Processor;
  */
 class UidProcessor
 {
-	/**
-	 * UidProcessor constructor.
-	 *
-	 * @param int $length
-	 * @author chenpeng1@guahao.com
-	 */
+    /** 创建唯一ID
+     * UidProcessor constructor.
+     * @param int $length
+     */
 	public function __construct($length = 7)
 	{
 		if (!defined('LOG_UUID')) {
@@ -26,15 +24,15 @@ class UidProcessor
 		}
 		
 	}
-	
-	/**
-	 * 获取频道名称
-	 *
-	 * @param array $record
-	 *
-	 * @return array
-	 * @author chenpeng1@guahao.com
-	 */
+
+    /**
+     * Notes: 获取唯一ID
+     * @param array $record
+     * @return array
+     * @author: Rex.栗田庆
+     * @Date: 2020-07-19
+     * @Time: 19:48
+     */
 	public function __invoke(array $record)
 	{
 		
