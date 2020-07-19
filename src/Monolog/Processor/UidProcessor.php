@@ -2,11 +2,7 @@
 
 namespace Sihe\Log\Monolog\Processor;
 
-/**
- * Class UidProcessor
- *
- * @package App\Wy\Monolog\Processor
- */
+
 class UidProcessor
 {
     /** 创建唯一ID

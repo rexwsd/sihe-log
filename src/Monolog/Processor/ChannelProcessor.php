@@ -2,11 +2,7 @@
 
 namespace Sihe\Log\Monolog\Processor;
 
-/**
- * Class ChannelProcessor
- *
- * @package App\Wy\Monolog\Processor
- */
+
 class ChannelProcessor
 {
 	protected $name;

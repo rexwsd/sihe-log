@@ -9,11 +9,7 @@ use Sihe\Log\Contracts\Logging\Log;
 use Illuminate\Log\LogManager as Manager;
 
 
-/**
- * Class LogManager
- *
- * @package App\Wy\Monolog
- */
+
 class LogManager extends Manager implements Log
 {
 	/**

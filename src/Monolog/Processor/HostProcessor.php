@@ -2,11 +2,6 @@
 
 namespace Sihe\Log\Monolog\Processor;
 
-/**
- * Class HostProcessor
- *
- * @package App\Wy\Monolog\Processor
- */
 class HostProcessor
 {
 
