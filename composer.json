@@ -1,6 +1,7 @@
 {
     "name": "sihebrothers/log-format",
     "description": "四合兄弟基于monolog二次开发的日志组件",
+    "license": "GPL",
     "config": {
         "sort-packages": true
     },
